@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Education</h1>
+            <h1 class="m-0">Education Page</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,108 +25,48 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-
-      @include('_message')
         <!-- Small boxes (Stat box) -->
+        @include('_message')
+        <a href="{{ url('admin/education/add')}}" class="btn btn-primary">Add Education</a>
         <div class="row">
-          <div class="col-md-12">
-            <div class="card card-info">
+          <section class="col-lg-12">
+            <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Education Page</h3>
-              </div>
-
-              <form class="form-horizontal" method="POST" action="{{url('admin/education/post')}}" enctype="multipart/form-data">
-                <div class="card-body">
-                {{csrf_field()}}
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-lable">
-                      Sekolah Dasar
-                    </label>
-                    <div class="col-sm-10">
-                      <input type="text" name="sekolah_dasar" class="form-control" placeholder="Enter Your School" value="{{ @$educationRecord[0]->sekolah_dasar}}">
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-lable">
-                      Periode SD
-                    </label>
-                    <div class="col-sm-10">
-                      <input type="text" name="periode_sd" class="form-control" placeholder="Enter Your Periode" value="{{ @$educationRecord[0]->periode_sd}}">
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-lable">
-                      SMP
-                    </label>
-                    <div class="col-sm-10">
-                      <input type="text" name="smp" class="form-control" placeholder="Enter Your School" value="{{ @$educationRecord[0]->smp}}">
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-lable">
-                      Periode SMP
-                    </label>
-                    <div class="col-sm-10">
-                      <input type="text" name="periode_smp" class="form-control" placeholder="Enter Your Periode" value="{{ @$educationRecord[0]->periode_smp}}">
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-lable">
-                      SMA
-                    </label>
-                    <div class="col-sm-10">
-                      <input type="text" name="sma" class="form-control" placeholder="Enter Your School" value="{{ @$educationRecord[0]->sma}}">
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-lable">
-                      Periode SMA
-                    </label>
-                    <div class="col-sm-10">
-                      <input type="text" name="periode_sma" class="form-control" placeholder="Enter Your Periode" value="{{ @$educationRecord[0]->periode_sma}}">
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-lable">
-                      Perguruan Tinggi
-                    </label>
-                    <div class="col-sm-10">
-                      <input type="text" name="perguruan_tinggi" class="form-control" placeholder="Enter Your University" value="{{ @$educationRecord[0]->perguruan_tinggi}}">
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-lable">
-                      Periode Perguruan Tinggi
-                    </label>
-                    <div class="col-sm-10">
-                      <input type="text" name="periode_pt" class="form-control" placeholder="Enter Your Periode" value="{{ @$educationRecord[0]->periode_pt}}">
-                    </div>
-                  </div>
-
-                  <input type="hidden" name="id" value="{{ @$educationRecord[0]->id}}"> 
-
-                </div>
-                  <div class="card-footer">
-                    <button type="submit" name="add_to_update" id="add_to_update" class="btn btn-info" value="@if(count($educationRecord)>0) Edit @else Add @endif">@if(count($educationRecord)>0) Edit @else Add @endif</button>
-                    <a href="" class="btn btn-default float-right">Cancel</a>
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Pendidikan</th>
+                      <th>Nama Instansi</th>
+                      <th>Jurusan</th>
+                      <th>Tahun Masuk</th>
+                      <th>Tahun Lulus</th>
+                    </tr>
+                  </thead>
+                  <tbody>
                     @foreach ($educationRecord as $value)
-                    <a onclick="return confirm('Are you sure want to delete?')"  href="{{ url('admin/education/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
-                    @endforeach
-                  </div>
+                        
+                    <tr>
+                      <td>{{ $value->id }}</td>
+                      <td>{{ $value->tingkat_pendidikan }}</td>
+                      <td>{{ $value->nama_instansi }}</td>
+                      <td>{{ $value->jurusan }}</td>
+                      <td>{{ $value->tahun_masuk }}</td>
+                      <td>{{ $value->tahun_lulus }}</td>
 
-                </div>
-              </form>
+
+                      <td>
+                        <a href="{{ url('admin/education/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
+                        <a onclick="return confirm('Are you sure want to delete?')"  href="{{ url('admin/education/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                      </td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
             </div>
-            
-          </div>
-          <!-- ./col -->
+          </section>
+
         </div>
         <!-- /.row -->
         <!-- Main row -->

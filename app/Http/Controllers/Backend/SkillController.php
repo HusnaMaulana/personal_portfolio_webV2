@@ -46,7 +46,7 @@ class SkillController extends Controller
 
         $updateRecord->save();
 
-        return redirect('admin/skill/')->with('success', "Portfolio Page Successfully Update");
+        return redirect('admin/skill/')->with('success', "Skill Page Successfully Update");
  
 
 
@@ -55,6 +55,6 @@ class SkillController extends Controller
     public function admin_skill_delete($id)
     {
         SkillModel::where('id', $id)->delete(); 
-        return redirect()->to('admin/skill')->with('success', 'Berhasil melakukan delete data'); 
+        return redirect()->to('admin/skill')->with('success', 'Skill Berhasil melakukan delete data'); 
     }
 }

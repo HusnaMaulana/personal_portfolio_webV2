@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Backend\SkillController;
+use App\Http\Controllers\Backend\EducationController;
 use App\Http\Controllers\Backend\ExperienceController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\Index2Controller;
@@ -65,12 +66,18 @@ Route::group(['middleware' => 'admin'], function () {
 
     // Education
     Route::get('admin/education',[DashboardController::class, 'admin_education']);
+
+    Route::get('admin/education/add',[EducationController::class, 'education_add']);
+
+    Route::post('admin/education/add',[EducationController::class, 'education_add_post']);
+
+    Route::get('admin/education/edit/{id}',[EducationController::class, 'admin_education_edit']);
     
-    Route::post('admin/education/post',[DashboardController::class, 'admin_education_post']);
+    Route::post('admin/education/edit/{id}',[EducationController::class, 'admin_education_edit_post']);
 
-    Route::get('admin/education/delete/{id}',[DashboardController::class, 'admin_education_delete']);
+    Route::get('admin/education/delete/{id}',[EducationController::class, 'admin_education_delete']);
 
-    Route::post('admin/education/delete/{id}',[DashboardController::class, 'admin_education_delete_post']);
+    Route::post('admin/education/delete/{id}',[EducationController::class, 'admin_education_delete_post']);
 
 
     // Portfolio 

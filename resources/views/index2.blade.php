@@ -227,28 +227,28 @@
           <div class="col-md-6 wow fadeInRight">
             <h2 class="fg-dark">Education</h2>
             <ul class="timeline mt-4 pr-md-5">
-              <li>
-                <div class="title">{{ @$educationRecord[0]->periode_pt}}</div>
-                <div class="details">
-                  <h5>Perguruan Tinggi</h5>
-                  <small class="fg-theme">{{ @$educationRecord[0]->perguruan_tinggi}}</small> 
-                </div>
-              </li>
-              <li>
-                <div class="title">{{ @$educationRecord[0]->periode_sma}}</div>
-                <div class="details">
-                  <h5>Sekolah Menengah Atas</h5>
-                  <small class="fg-theme">{{ @$educationRecord[0]->sma}}</small>
-                </div>
-              </li>
-  
-              <li>
-                <div class="title">{{ @$educationRecord[0]->periode_smp}}</div>
-                <div class="details">
-                  <h5>Sekolah Menengah Pertama</h5>
-                  <small class="fg-theme">{{ @$educationRecord[0]->smp}}</small>
-                </div>
-              </li>
+            <li>
+              <div class="title">{{ @$educationRecord[0]->tahun_masuk}} - {{ @$educationRecord[0]->tahun_lulus}}</div>
+              <div class="details">
+                <h5>{{ @$educationRecord[0]->tingkat_pendidikan}}</h5>
+                <small class="fg-theme">{{ @$educationRecord[0]->nama_instansi}}</small>
+              </div>
+            </li>
+            <li>
+              <div class="title">{{ @$educationRecord[3]->tahun_masuk}} - {{ @$educationRecord[3]->tahun_lulus}}</div>
+              <div class="details">
+                <h5>{{ @$educationRecord[3]->tingkat_pendidikan}}</h5>
+                <small class="fg-theme">{{ @$educationRecord[3]->nama_instansi}}</small>
+              </div>
+            </li>
+
+            <li>
+              <div class="title">{{ @$educationRecord[2]->tahun_masuk}} - {{ @$educationRecord[2]->tahun_lulus}}</div>
+              <div class="details">
+                <h5>{{ @$educationRecord[2]->tingkat_pendidikan}}</h5>
+                <small class="fg-theme">{{ @$educationRecord[2]->nama_instansi}}</small>
+              </div>
+            </li>
             </ul>
           </div>
           <div class="col-md-6 wow fadeInRight" data-wow-delay="200ms" id="experience">

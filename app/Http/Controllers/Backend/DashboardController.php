@@ -94,7 +94,7 @@ class DashboardController extends Controller
         $insertRecord->address = trim($request->address);
         $insertRecord->phone = trim($request->phone);
         $insertRecord->email = trim($request->email);
-        $insertRecord->languages = trim($request->languages);
+        $insertRecord->languages = trim($request->language);
         $insertRecord->save();
 
         return redirect()->back()->with('success', "About Page Successfully Save");
@@ -105,41 +105,7 @@ class DashboardController extends Controller
         $data['educationRecord']= education::all();
         return view('backend.education.list',$data);
     }
-
-    public function admin_education_post(Request $request)
-    {
-        if ($request->add_to_update == "Add") {
-            $insertRecord = Education::create([
-                'sekolah_dasar' => trim($request->sekolah_dasar),
-                'periode_sd' => trim($request->periode_sd),
-                'smp' => trim($request->smp),
-                'periode_smp' => trim($request->periode_smp),
-                'sma' => trim($request->sma),
-                'periode_sma' => trim($request->periode_sma),
-                'perguruan_tinggi' => trim($request->perguruan_tinggi),
-                'periode_pt' => trim($request->periode_pt),
-            ]);
-        } else {
-            $insertRecord = Education::find($request->id);
-            
-            if (!$insertRecord) {
-                return redirect()->back()->with('error', 'Record not found.');
-            }
-        
-            $insertRecord->sekolah_dasar = trim($request->sekolah_dasar);
-            $insertRecord->periode_sd = trim($request->periode_sd);
-            $insertRecord->smp = trim($request->smp);
-            $insertRecord->periode_smp = trim($request->periode_smp);
-            $insertRecord->sma = trim($request->sma);
-            $insertRecord->periode_sma = trim($request->periode_sma);
-            $insertRecord->perguruan_tinggi = trim($request->perguruan_tinggi);
-            $insertRecord->periode_pt = trim($request->periode_pt);
-        
-            $insertRecord->save();
-        }
-        
-        return redirect()->back()->with('success', 'Education Page Successfully Saved');
-    }    
+   
     public function admin_portfolio(Request $request) 
     {
         $data['portfolioRecord']= PortfolioModel::all();

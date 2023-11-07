@@ -201,25 +201,25 @@
           <h2 class="fw-normal">Education</h2>
           <ul class="timeline mt-4 pr-md-5">
             <li>
-              <div class="title">{{ @$educationRecord[0]->periode_pt}}</div>
+              <div class="title">{{ @$educationRecord[0]->tahun_masuk}} - {{ @$educationRecord[0]->tahun_lulus}}</div>
               <div class="details">
-                <h5>Perguruan Tinggi</h5>
-                <small class="fg-theme">{{ @$educationRecord[0]->perguruan_tinggi}}</small>
+                <h5>{{ @$educationRecord[0]->tingkat_pendidikan}}</h5>
+                <small class="fg-theme">{{ @$educationRecord[0]->nama_instansi}}</small>
               </div>
             </li>
             <li>
-              <div class="title">{{ @$educationRecord[0]->periode_sma}}</div>
+              <div class="title">{{ @$educationRecord[1]->tahun_masuk}} - {{ @$educationRecord[1]->tahun_lulus}}</div>
               <div class="details">
-                <h5>Sekolah Menengah Atas</h5>
-                <small class="fg-theme">{{ @$educationRecord[0]->sma}}</small>
+                <h5>{{ @$educationRecord[1]->tingkat_pendidikan}}</h5>
+                <small class="fg-theme">{{ @$educationRecord[1]->nama_instansi}}</small>
               </div>
             </li>
 
             <li>
-              <div class="title">{{ @$educationRecord[0]->periode_smp}}</div>
+              <div class="title">{{ @$educationRecord[2]->tahun_masuk}} - {{ @$educationRecord[2]->tahun_lulus}}</div>
               <div class="details">
-                <h5>Sekolah Menengah Pertama</h5>
-                <small class="fg-theme">{{ @$educationRecord[0]->smp}}</small>
+                <h5>{{ @$educationRecord[2]->tingkat_pendidikan}}</h5>
+                <small class="fg-theme">{{ @$educationRecord[2]->nama_instansi}}</small>
               </div>
             </li>
           </ul>
