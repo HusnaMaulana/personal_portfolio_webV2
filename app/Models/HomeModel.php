@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class HomeModel extends Model
 {
     use HasFactory;
+    protected $fillable = ['id','profile','your_name','work_experience','description'];
 
     protected $table = 'home';
+
+    public $timestamps = false;
 }

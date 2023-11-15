@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Backend\AuthController;
-use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Controllers\Backend\PortfolioController;
-use App\Http\Controllers\Backend\SkillController;
-use App\Http\Controllers\Backend\EducationController;
-use App\Http\Controllers\Backend\ExperienceController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\Index2Controller;
 
@@ -55,17 +57,17 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/home/delete/{id}',[DashboardController::class, 'admin_home_delete_post']);
 
     // About
-    Route::get('admin/about',[DashboardController::class, 'admin_about']);
+    Route::get('admin/about',[AboutController::class, 'admin_about']);
 
-    Route::post('admin/about/post',[DashboardController::class, 'admin_about_post']);
+    Route::post('admin/about/post',[AboutController::class, 'admin_about_post']);
 
-    Route::get('admin/about/delete/{id}',[DashboardController::class, 'admin_about_delete']);
+    Route::get('admin/about/delete/{id}',[AboutController::class, 'admin_about_delete']);
 
-    Route::post('admin/about/delete/{id}',[DashboardController::class, 'admin_about_delete_post']);
+    Route::post('admin/about/delete/{id}',[AboutController::class, 'admin_about_delete_post']);
 
 
     // Education
-    Route::get('admin/education',[DashboardController::class, 'admin_education']);
+    Route::get('admin/education',[EducationController::class, 'admin_education']);
 
     Route::get('admin/education/add',[EducationController::class, 'education_add']);
 
@@ -81,7 +83,7 @@ Route::group(['middleware' => 'admin'], function () {
 
 
     // Portfolio 
-    Route::get('admin/portfolio',[DashboardController::class, 'admin_portfolio']);
+    Route::get('admin/portfolio',[PortfolioController::class, 'admin_portfolio']);
 
     Route::get('admin/portfolio/add',[PortfolioController::class, 'portfolio_add']);
 
@@ -96,7 +98,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/portfolio/delete/{id}',[PortfolioController::class, 'admin_portfolio_delete_post']);
 
     // Experience
-    Route::get('admin/experience',[DashboardController::class, 'admin_experience']);
+    Route::get('admin/experience',[ExperienceController::class, 'admin_experience']);
 
     Route::get('admin/experience/add',[ExperienceController::class, 'experience_add']);
 
@@ -111,7 +113,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/experience/delete/{id}',[DashboardController::class, 'admin_experience_delete_post']);
 
     // Skill
-    Route::get('admin/skill',[DashboardController::class, 'admin_skill']);
+    Route::get('admin/skill',[SkillController::class, 'admin_skill']);
 
     Route::get('admin/skill/add',[SkillController::class, 'skill_add']);
 
@@ -125,6 +127,21 @@ Route::group(['middleware' => 'admin'], function () {
     
     Route::post('admin/skill/delete/{id}',[SkillController::class, 'admin_skill_delete_post']);
 
+
+    // Galleri
+    Route::get('admin/galeri',[GaleriController::class, 'admin_galeri']);
+
+    Route::get('admin/galeri/add',[GaleriController::class, 'galeri_add']);
+
+    Route::post('admin/galeri/add',[GaleriController::class, 'galeri_add_post']);
+
+    Route::get('admin/galeri/edit/{id}',[GaleriController::class, 'admin_galeri_edit']);
+    
+    Route::post('admin/galeri/edit/{id}',[GaleriController::class, 'admin_galeri_edit_post']);
+
+    Route::get('admin/galeri/delete/{id}',[GaleriController::class, 'admin_galeri_delete']);
+   
+    Route::post('admin/galeri/delete/{id}',[GaleriController::class, 'admin_galeri_delete_post']);
 
     // Route::get('admin/contact',[DashboardController::class, 'admin_contact']);
 });

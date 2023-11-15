@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Edit Portfolio Page</h1>
+            <h1 class="m-0">Edit Galeri Page</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Edit Portfolio</a></li>
-              <li class="breadcrumb-item active">Edit Portfolio</li>
+              <li class="breadcrumb-item"><a href="#">Edit Galeri</a></li>
+              <li class="breadcrumb-item active">Edit Galeri</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -32,44 +32,46 @@
           <div class="col-md-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Edit Portfolio Page</h3>
+                <h3 class="card-title">Edit Galeri Page</h3>
               </div>
 
-              <form class="form-horizontal" method="POST" action="{{ url('admin/portfolio/edit/' . $portfolioRecord->id) }}" enctype="multipart/form-data">
+              <form class="form-horizontal" method="POST" action="{{ url('admin/galeri/edit/' . $galeriRecord->id) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="card-body">
-                  <div class="form-group row">
+                <div class="form-group row">
                     <label class="col-sm-2 col-form-lable">
-                      Portfolio Title
-                      <span style="color: red;"> *</span>
-                    </label>
-                    <div class="col-sm-10">
-                      <input type="text" name="title" class="form-control" placeholder="Portfolio Title" required value="{{ $portfolioRecord->title }}">
-       
-                    </div>
-                  </div>
-
-    
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-lable">
-                      Portfolio Image
+                      Gambar
                       <span style="color: red;"> *</span>
                     </label>
                     <div class="col-sm-10">
                       <input type="file" name="image" class="form-control" required>
-                      @if(!empty($portfolioRecord->image))
-                      {{-- @if(file_exist(public_path('public/portfolio/'.$value->image))) --}}
-                      <img src="{{ url('public/portfolio/'.$portfolioRecord->image) }}" style="height: 80px; width: 80px;">
+                      @if(!empty($galeriRecord->image))
+                      {{-- @if(file_exist(public_path('public/galeri/'.$value->image))) --}}
+                      <img src="{{ url('public/galeri/'.$galeriRecord->image) }}" style="height: 80px; width: 80px;">
                       {{-- @endif --}}
                     @endif
                     </div>
                   </div>
 
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-lable">
+                      Deskripsi
+                      <span style="color: red;"> *</span>
+                    </label>
+                    <div class="col-sm-10">
+                      <input type="text" name="deskripsi" class="form-control" placeholder="Deskripsi" required value="{{ $galeriRecord->deskripsi }}">
+       
+                    </div>
+                  </div>
+
+    
+                  
+
 
                 </div>
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Edit</button>
-                    <a href="{{ url('admin/portfolio') }}" class="btn btn-default float-right">Cancel</a>
+                    <a href="{{ url('admin/galeri') }}" class="btn btn-default float-right">Cancel</a>
                     @if($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -98,14 +100,14 @@
     <!-- /.content -->
   </div>
   <script>
-  // Validasi sisi klien untuk Portfolio Title
+  // Validasi sisi klien untuk Galeri 
   document.querySelector('form').addEventListener('submit', function (e) {
-    var regexPortfolioTitle = /^[A-Za-z0-9\s]+$/;
+    var regexGaleriDeskripsi = /^[A-Za-z0-9\s]+$/;
 
-    var portfolioTitle = document.querySelector('input[name="title"]').value;
+    var galeriDeskripsi = document.querySelector('input[name="deskripsi"]').value;
 
-    if (!regexPortfolioTitle.test(portfolioTitle)) {
-      alert('Portfolio Title hanya boleh berisi huruf, angka, dan spasi.');
+    if (!regexGaleriDeskripsi.test(galeriDeskripsi)) {
+      alert('Galeri Deskripsi hanya boleh berisi huruf, angka, dan spasi.');
       e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
     }
   });

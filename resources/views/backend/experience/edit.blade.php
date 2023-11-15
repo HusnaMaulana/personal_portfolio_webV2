@@ -112,5 +112,43 @@
     </section>
     <!-- /.content -->
   </div>
+  <script>
+    // Validasi sisi klien untuk Organisasi, Periode, Bidang, Jabatan, dan Keterangan
+    document.querySelector('form').addEventListener('submit', function (e) {
+        var regexAlphanumericSpace = /^[A-Za-z0-9 ]+$/;
+        var regexAlphabet = /^[A-Za-z ]+$/;
+        var regexNumeric = /^[0-9 -]+$/;
 
+        var organisasi = document.querySelector('input[name="organisasi"]').value;
+        var periode = document.querySelector('input[name="periode"]').value;
+        var bidang = document.querySelector('input[name="bidang"]').value;
+        var jabatan = document.querySelector('input[name="jabatan"]').value;
+        var keterangan = document.querySelector('input[name="keterangan"]').value;
+
+        if (!regexAlphanumericSpace.test(organisasi)) {
+            alert('Organisasi hanya boleh berisi huruf, angka, dan spasi.');
+            e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+        }
+
+        if (!regexNumeric.test(periode)) {
+            alert('Periode hanya boleh berisi angka');
+            e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+        }
+
+        if (!regexAlphabet.test(bidang)) {
+            alert('Bidang hanya boleh berisi huruf dan spasi.');
+            e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+        }
+
+        if (!regexAlphanumericSpace.test(jabatan)) {
+            alert('Jabatan hanya boleh berisi huruf, angka, dan spasi.');
+            e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+        }
+
+        if (!regexAlphanumericSpace.test(keterangan)) {
+            alert('Keterangan hanya boleh berisi huruf, angka, dan spasi.');
+            e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+        }
+    });
+</script>
 @endsection

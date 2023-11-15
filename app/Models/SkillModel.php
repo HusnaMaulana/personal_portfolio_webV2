@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class SkillModel extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['id','skill','percentage'];
     protected $table = 'skill';
+
+    public $timestamps = false;
 }

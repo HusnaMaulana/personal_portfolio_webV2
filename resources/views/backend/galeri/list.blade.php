@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Portfolio Page</h1>
+            <h1 class="m-0">Galeri Page</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Portfolio</a></li>
-              <li class="breadcrumb-item active">Portfolio</li>
+              <li class="breadcrumb-item"><a href="#">Galeri</a></li>
+              <li class="breadcrumb-item active">Galeri</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -27,7 +27,7 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         @include('_message')
-        <a href="{{ url('admin/portfolio/add')}}" class="btn btn-primary">Add Portfolio</a>
+        <a href="{{ url('admin/galeri/add')}}" class="btn btn-primary">Add Galeri</a>
         <div class="row">
           <section class="col-lg-12">
             <div class="card">
@@ -36,26 +36,24 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Title</th>
                       <th>Image</th>
-                      <th>Action</th>
+                      <th>Deskripsi</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($portfolioRecord as $value)
-                        
+                    @foreach ($galeriRecord as $value)
                     <tr>
                       <td>{{ $value->id }}</td>
-                      <td>{{ $value->title }}</td>
                       <td>
                         @if(!empty($value->image))
-                          {{-- @if(file_exist(public_path('public/portfolio/'.$value->image))) --}}
-                          <img src="{{ url('public/portfolio/'.$value->image) }}" style="height: 80px; width: 80px;">
+                          {{-- @if(file_exist(public_path('public/galeri/'.$value->image))) --}}
+                          <img src="{{ url('public/galeri/'.$value->image) }}" style="height: 80px; width: 80px;">
                           {{-- @endif --}}
                         @endif
                       </td>
+                      <td>{{ $value->deskripsi }}</td>
                       <td>
-                        <a href="{{ url('admin/portfolio/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
+                        <a href="{{ url('admin/galeri/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
                         @if($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -65,7 +63,7 @@
                             </ul>
                         </div>
                         @endif
-                        <a onclick="return confirm('Are you sure want to delete?')"  href="{{ url('admin/portfolio/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                        <a onclick="return confirm('Are you sure want to delete?')"  href="{{ url('admin/galeri/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
                       </td>
                     </tr>
                     @endforeach

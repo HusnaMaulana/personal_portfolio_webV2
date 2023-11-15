@@ -117,6 +117,12 @@
           </a>
         </li>
         <li class="menu-item">
+          <a href="#galeri" class="menu-link">
+            <span class="icon ti-briefcase"></span>
+            <span class="caption">Galeri</span>
+          </a>
+        </li>
+        <li class="menu-item">
           <a onclick="redirectToIndex()" class="menu-link">
             <span class="icon ti-reload"></span>
             <span class="caption">Switch</span>
@@ -310,7 +316,29 @@
   
     </div> <!-- End Portfolio page -->
     
- 
+    <!-- Galeri page -->
+    <div class="vg-page page-galeri" id="galeri">
+      <div class="container">
+        <div class="text-center wow fadeInUp">
+          <div class="badge badge-subhead">Galeri</div>
+        </div>
+        <h1 class="text-center fw-normal wow fadeInUp">My Activity</h1>
+  
+        <div class="gridder my-3">
+          @foreach($galeriRecord as $value)
+          <div class="grid-item apps wow zoomIn">
+            <div class="img-place" data-src="{{ url('public/galeri/'.$value->image) }}" data-fancybox data-caption="<h5 class='fg-theme'>{{ $value->title }}</h5>">
+              <img src="{{ url('public/galeri/'.$value->image) }}"  alt="">
+              <div class="img-caption">
+                <h5 class="fg-theme">{{ $value->title }}</h5>
+  
+              </div>
+            </div>
+          </div>
+          @endforeach
+       </div>
+  
+    </div> <!-- End Galeri page -->
     
 
   <!-- Footer -->

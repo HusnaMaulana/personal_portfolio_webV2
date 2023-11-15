@@ -6,12 +6,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ExperienceModel extends Model
+class GaleriModel extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','organisasi','periode','bidang','jabatan','keterangan'];
+    protected $fillable = ['id','image','deskripsi'];
 
-    protected $table = 'experience';
+    protected $table = 'galeri';
 
     public $timestamps = false;
 }

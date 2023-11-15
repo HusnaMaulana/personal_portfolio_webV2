@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class PortfolioModel extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['id','title','image'];
     protected $table = 'portfolio';
+
+    public $timestamps = false;
 }

@@ -9,6 +9,7 @@ use App\Models\ExperienceModel;
 use App\Models\Education;
 use App\Models\SkillModel;
 use App\Models\PortfolioModel;
+use App\Models\GaleriModel;
 
 
 class HomeController extends Controller
@@ -21,6 +22,7 @@ class HomeController extends Controller
         $data['experienceRecord']= ExperienceModel::all();
         $data['skillRecord']= SkillModel::all();
         $data['educationRecord']= Education::all();
+        $data['galeriRecord']= GaleriModel::all();
 
         return view('index', $data);
     }
@@ -33,6 +35,7 @@ class HomeController extends Controller
         $data['experienceRecord']= ExperienceModel::all();
         $data['skillRecord']= SkillModel::all();
         $data['educationRecord']= Education::all();
+        $data['galeriRecord']= GaleriModel::all();
 
         return view('index2', $data);
     }

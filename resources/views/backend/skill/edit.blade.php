@@ -83,5 +83,24 @@
     </section>
     <!-- /.content -->
   </div>
+  <script>
+  // Validasi sisi klien untuk Skill Title dan Skill Percentage
+  document.querySelector('form').addEventListener('submit', function (e) {
+    var regexAlphabet = /^[A-Za-z ]+$/;
+    var regexNumeric = /^[0-9 ]+$/;
 
+    var skillTitle = document.querySelector('input[name="skill"]').value;
+    var skillPercentage = document.querySelector('input[name="percentage"]').value;
+
+    if (!regexAlphabet.test(skillTitle)) {
+      alert('Skill Title hanya boleh berisi huruf.');
+      e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+    }
+
+    if (!v.test(skillPercentage)) {
+      alert('Skill Percentage hanya boleh berisi  angka');
+      e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+    }
+  });
+</script>
 @endsection

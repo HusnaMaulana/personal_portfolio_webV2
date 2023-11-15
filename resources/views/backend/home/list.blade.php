@@ -84,6 +84,15 @@
                   <div class="card-footer">
                     <button type="submit" name="add_to_update" id="add_to_update" class="btn btn-info" value="@if(count($homeRecord)>0) Edit @else Add @endif">@if(count($homeRecord)>0) Edit @else Add @endif</button>
                     <a href="" class="btn btn-default float-right">Cancel</a>
+                    @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     @foreach ($homeRecord as $value)
                     <a onclick="return confirm('Are you sure want to delete?')"  href="{{ url('admin/home/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
                     @endforeach

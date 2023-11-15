@@ -118,5 +118,37 @@
     </section>
     <!-- /.content -->
   </div>
+  <script>
+    // Validasi sisi klien
+    document.querySelector('form').addEventListener('submit', function (e) {
+        var regexAlphanumericSpace = /^[A-Za-z0-9 ]+$/;
+        var regexAlphabet = /^[A-Za-z ]+$/;
+        var regexNumeric = /^[0-9]+$/;
 
+        var tingkatPendidikan = document.querySelector('input[name="tingkat_pendidikan"]').value;
+        var namaInstansi = document.querySelector('input[name="nama_instansi"]').value;
+        var tahunMasuk = document.querySelector('input[name="tahun_masuk"]').value;
+        var tahunLulus = document.querySelector('input[name="tahun_lulus"]').value;
+
+        if (!regexAlphabet.test(tingkatPendidikan)) {
+            alert('Tingkat Pendidikan hanya boleh berisi huruf dan spasi.');
+            e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+        }
+
+        if (!regexAlphanumericSpace.test(namaInstansi)) {
+            alert('Nama Instansi hanya boleh berisi huruf, angka, dan spasi.');
+            e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+        }
+
+        if (!regexNumeric.test(tahunMasuk)) {
+            alert('Tahun Masuk hanya boleh berisi angka.');
+            e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+        }
+
+        if (!regexNumeric.test(tahunLulus)) {
+            alert('Tahun Lulus hanya boleh berisi angka.');
+            e.preventDefault(); // Menghentikan pengiriman formulir jika tidak valid
+        }
+    });
+</script>
 @endsection
